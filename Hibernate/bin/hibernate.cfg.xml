@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--配置数据库的基本连接信息-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/testhibernate</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+
+        <!--配置hibernate的基本信息-->
+        <!--hibernate所使用的数据库方言,选择执行事务的方言-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!--执行操作时是否在控制台打印SQL语句-->
+        <property name="show_sql">true</property>
+
+        <!--是否在控制台对SQL打印进行格式化-->
+        <property name="format_sql">true</property>
+
+        <!--指定程序运行时自动在数据库生成数据表的策略-->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!--指定关联的.hbm.xml文件-->
+        <mapping resource="com/wzc/hello/News.hbm.xml"/>
+        <mapping class="com.wzc.hello.News"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
